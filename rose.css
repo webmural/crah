@@ -1,0 +1,66 @@
+:root {
+  --thorns:
+    -8ex 13ex 0 var(--eros),
+    -5ex 8ex 0 var(--eros),
+    -3ex 5ex 0 var(--eros),
+    -8ex -13ex 0 var(--eros),
+    -5ex -8ex 0 var(--eros),
+    -3ex -5ex 0 var(--eros);
+  --rose: pink;
+  --eros: deeppink;
+  --sore: darkmagenta;
+  accent-color: var(--eros);
+  background-color: var(--rose);
+  color: var(--sore);
+}
+
+::selection {
+  background-color: var(--eros);
+  color: #313;
+}
+
+:any-link {
+  color: var(--rose);
+  background-color: var(--sore);
+  text-shadow: 0 0 1ex var(--eros);
+  text-decoration: dotted overline;
+  transition: filter 300ms ease;
+}
+
+:focus {
+  box-shadow: 0 0 0 1ex var(--eros);
+  outline: thick outset;
+  text-decoration-line: underline;
+}
+
+:any-link:hover {
+  box-shadow: 0 0 0 1ex var(--eros);
+  filter: hue-rotate(-20deg);
+}
+
+@media (prefers-contrast: less) {
+  :root {
+    --rose: lightpink;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --rose: mistyrose;
+    --sore: indigo;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(:target) {
+    --eros: hotpink;
+    background-color: var(--sore);
+    color: var(--rose);
+  }
+
+  :any-link {
+    color: var(--sore);
+    background-color: var(--rose);
+  } 
+}
+
